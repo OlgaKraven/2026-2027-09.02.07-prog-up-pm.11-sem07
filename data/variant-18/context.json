@@ -1,0 +1,11 @@
+{
+  "subject": "Магазин защитной экипировки",
+  "rows": {
+    "products": 5,
+    "sizes": 2,
+    "stock": 10,
+    "users": 2,
+    "orders": 1
+  },
+  "historical_order_total": 118
+}

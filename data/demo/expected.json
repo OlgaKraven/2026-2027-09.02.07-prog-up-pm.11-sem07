@@ -1,0 +1,12 @@
+{
+  "rows": {
+    "products": 31,
+    "sizes": 35,
+    "stock": 92,
+    "users": 20,
+    "orders": 30
+  },
+  "orders": 10,
+  "order_total": 341770.0,
+  "stock_total": 1274
+}
