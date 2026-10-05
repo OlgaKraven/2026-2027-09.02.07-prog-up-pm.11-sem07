@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "fingerprint": "2f7712f683aadf3467da790700aae233ea19d124a954d595755d46290915c306",
+  "fingerprint": "90792b45decb1320c3e635bc5c0a6c4593ce11e3c238376f033a31c08e1cc2e6",
   "release": true,
   "files": {
-    "areas.html": "7073316a6793e26813ca7cd55a3901ddbdea4c3ccb01b5f6f0c4464eddea1ffb",
+    "areas.html": "cd4dbba93c10eda5972632e1f6232bc1be8eb504bd91f9c5541af78ff58406b5",
     "assets/favicon.svg": "4d11c3923a0c231e244ba64f5714e45fd998f411b1e0ffa679dfc7979c59fe1d",
     "assets/screenshots/32a7da920e122375.png": "4a099887ea0e7addd4900cee512660b852826fb5d01ddd649701e8a5dcd300cb",
     "assets/screenshots/623c895699911a50.png": "7d0c20294ee4d0d4bc006317c1ef8c06d10d64ce574a4ab436fa2efa7acf151b",
@@ -16,18 +16,18 @@
     "assets/style.css": "3b26fc680fcf2de668d33b3d7986be3091c3b1f86adbe91eb3099ebeb994fecf",
     "downloads/01_schema.sql": "cc70ec6ac95b504ebd013005b4cbe31d15961c93af3f7820264d194c1a6a0c01",
     "downloads/02_staging.sql": "8c0e03e64292a22ddfa5fbc7ad920d762574042ceb64ad0e7510fbb0338b21ed",
-    "downloads/03_import.sql": "b47869faf5b41425e8b758696a6618b7f68192686f231d6ed0145ea7a852db91",
+    "downloads/03_import.sql": "d6ca713f5d1b79e5b69fa4e993b64384f5ba510b8b2a6d2c5f47b99a66f61161",
     "downloads/04_queries.sql": "e50902658056f4e698b0ae81ee77ba67cc869db2e652683643c8bde01ba44b64",
     "downloads/05_order.sql": "8bd71ec7e87774ec39e32eb573dc1b3426d214d60d1291f70f6ea01a1f947f8d",
     "downloads/06_checks.sql": "049015cfdcefc41a50df0f1de54e7dae450b66391d20f66b14bde24172abb9e7",
     "downloads/07_roles.sql": "52d4f74c142ebe85f6c775c52babf3dc8d2fedcfde3f6a6e678671f3ee62578d",
     "downloads/08_adaptation.sql": "5d2d8fddd887e6b11d5bfa430a4a98b6ed136b1fe271d6443af79225898f4455",
-    "downloads/assignment.pdf": "c5dd334c6a8d49596ee0b55c5920aa1321c9cb8249927086bbe795b9a1659adb",
+    "downloads/assignment.pdf": "60850010fba7e870ce3d539a85b264900d10864eeeb656af2483180ee95ab314",
     "downloads/database-starter.zip": "1712543f6386b07e2f13e8ae0ba33495e73db09f27bc4ee9518877c8ec1404bc",
-    "downloads/demo-data.zip": "5cd157dee75f00d41cfba7cdd3f9dd12afce8cf29adc32d58095d14a71cd361f",
+    "downloads/demo-data.zip": "b2cbc4d098c10f8fa968adff6af049f75d3c787c63ced6593d670cb0a61865e9",
     "downloads/demo-er.pdf": "115dc8d961c500f065f2cf2344539c10087b760d26395ac0a6bc3fc62ccfc3b5",
-    "downloads/demo-solution.zip": "5030f760b222e4d0ae8a967814881b9820f9292eec2f668bc636981701a6bc8f",
-    "downloads/guide.pdf": "75e52419686b705f606980169bc6ff07c4f6f91885194e41e683d24187e9c0ed",
+    "downloads/demo-solution.zip": "05a74d006b323ee357bc7cfbd6d5e8f3a2626bde9e2fe2f64d4ed487e671bc0c",
+    "downloads/guide.pdf": "17c2a6ec67d8fdef289c6a5be34c4a379ee6b4e1521e7eaab08cf71147643cac",
     "downloads/report-template.md": "84af534c78391b0264067147c6a3f70b7ff1b8c1a07e9b24ca6bf7e9bfc59548",
     "downloads/variant-01.zip": "e5e8d5514d434be96b38d229a858afa1595a5b1e1f68c6a46c84bf44a6e65c2f",
     "downloads/variant-02.zip": "12a0d2a151f7b47fda7eb485b0441c7db5d7f2aefc691e83265b4bc46c7ec78f",
@@ -59,7 +59,7 @@
     "downloads/variant-28.zip": "cdfb5074cd46916ecee53005282bc9df634e28b3b987ac8d0ee488b42935f75e",
     "downloads/variant-29.zip": "0b7283ac0de837df0fb90e6b2e18cca5ba5f35ae73654239611669508da2263f",
     "downloads/variant-30.zip": "946c778d4307e8121f37b95bf2ade6d42acea4b57a69d3bbbde10785e9952411",
-    "index.html": "5ff6454ffd8641facbad2939e33d908763a5fecf9d5355a01ca6ad30244499fa",
-    "lessons.html": "683c52e8af45ae839d7d97dba009bc88b3c04292df8f081c11d16d060eb3c062"
+    "index.html": "93dc2c4bf2560e4ab9699e42d7d37658a2d21709ac3e4f0f982cfb4d6bde1398",
+    "lessons.html": "c81fd359e59a29b4381a55dade477173417b679281ac6e33d406a8074975f9be"
   }
 }
