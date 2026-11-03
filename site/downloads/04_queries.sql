@@ -22,6 +22,13 @@ FROM order_line l JOIN catalog k USING(item_id) ORDER BY l.order_id,k.name;
 SELECT COUNT(*) AS broken_links FROM order_line l
 LEFT JOIN sales_order o USING(order_id) LEFT JOIN stock_item s USING(item_id)
 WHERE o.order_id IS NULL OR s.item_id IS NULL;
--- === Индекс для истории клиента
-CREATE INDEX ix_order_customer_date ON sales_order(customer_id,ordered_at);
-EXPLAIN SELECT * FROM sales_order WHERE customer_id=1 ORDER BY ordered_at;
+
+-- Контрольные счётчики до новых операций
+SELECT 'product' AS object_name,COUNT(*) AS rows_count FROM product
+UNION ALL SELECT 'size' AS object_name,COUNT(*) AS rows_count FROM size
+UNION ALL SELECT 'stock_item' AS object_name,COUNT(*) AS rows_count FROM stock_item
+UNION ALL SELECT 'customer' AS object_name,COUNT(*) AS rows_count FROM customer
+UNION ALL SELECT 'sales_order' AS object_name,COUNT(*) AS rows_count FROM sales_order
+UNION ALL SELECT 'order_line' AS object_name,COUNT(*) AS rows_count FROM order_line;
+SELECT SUM(available) AS available_total FROM stock_item;
+SELECT SUM(total) AS historical_total FROM order_totals;

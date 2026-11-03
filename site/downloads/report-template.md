@@ -1,271 +1,203 @@
-<div lang="ru" style="font-family:'Times New Roman';color:#000;font-size:14pt;text-align:justify;line-height:1.5;text-indent:1.25cm;">
+# Отчёт по учебной практике ПМ.11
 
-<h1 style="font-family:'Times New Roman';color:#000;font-size:16pt;text-align:center;line-height:1.5;page-break-after:avoid;">ОТЧЁТ — УЧЕБНАЯ ПРАКТИКА ПМ.11 «РАЗРАБОТКА, АДМИНИСТРИРОВАНИЕ И ЗАЩИТА БАЗ ДАННЫХ»</h1>
+Разработка администрирование и защита баз данных
 
-<p style="font-family:'Times New Roman';color:#000;font-size:14pt;text-align:justify;line-height:1.5;text-indent:1.25cm;">ФИО: ____________________</p>
+ФИО: ________________________________________
 
-<p style="font-family:'Times New Roman';color:#000;font-size:14pt;text-align:justify;line-height:1.5;text-indent:1.25cm;">Группа: ____________________</p>
+Группа: ______________________________________
 
-<p style="font-family:'Times New Roman';color:#000;font-size:14pt;text-align:justify;line-height:1.5;text-indent:1.25cm;">Вариант: ____________________</p>
+Вариант и предметная область: __________________
 
-<p style="font-family:'Times New Roman';color:#000;font-size:14pt;text-align:justify;line-height:1.5;text-indent:1.25cm;">Предметная область: ____________________</p>
+Период практики: ______________________________
 
-<p style="font-family:'Times New Roman';color:#000;font-size:14pt;text-align:justify;line-height:1.5;text-indent:1.25cm;">Дата: ____________________</p>
+Ссылка на репозиторий проекта: __________________
 
-<p style="font-family:'Times New Roman';color:#000;font-size:14pt;text-align:justify;line-height:1.5;text-indent:1.25cm;">Версия программы: ____________________</p>
+Форма предназначена для заполнения результатами собственной работы. Вставить свои снимки в рамки, удалить подсказки и сохранить подписи. Пустые поля и рамки не подтверждают выполнение задания.
 
-<p style="font-family:'Times New Roman';color:#000;font-size:14pt;text-align:justify;line-height:1.5;text-indent:1.25cm;">Ссылка на репозиторий проекта: ____________________</p>
+## 1. Исходные данные и проект
 
-<h2 style="font-family:'Times New Roman';color:#000;font-size:14pt;text-align:justify;line-height:1.5;page-break-after:avoid;">Исходная задача и среда</h2>
+Заполнить область, вариант, источники, среду и ссылку на репозиторий.
 
-<p style="font-family:'Times New Roman';color:#000;font-size:14pt;text-align:justify;line-height:1.5;text-indent:1.25cm;">Опишите область, исходные файлы, версии XAMPP/СУБД/phpMyAdmin и ожидаемые результаты. Пароли не показывайте.</p>
+Фактический результат и пояснение: ________________________________________
 
-<p style="font-family:'Times New Roman';color:#000;font-size:14pt;text-align:justify;line-height:1.5;text-indent:1.25cm;">Заполните по результатам своей работы.</p>
+Продолжение пояснения: __________________________________________________
 
-<div style="page-break-inside:avoid;break-inside:avoid;">
-<table width="100%" border="1" cellspacing="0" cellpadding="0" style="border-collapse:collapse;width:100%;page-break-after:avoid;">
-<tr>
-<td height="220" style="border:1px solid #000;height:220px;text-align:center;vertical-align:middle;font-family:'Times New Roman';color:#000;font-size:12pt;line-height:1;text-indent:0;">Вставьте скриншот</td>
-</tr>
-</table>
-<p style="font-family:'Times New Roman';color:#000;font-size:12pt;text-align:center;line-height:1;text-indent:0;page-break-before:avoid;">Рисунок 1 — Доступная учебная БД и версия СУБД</p>
-</div>
+На рис. 1 представить результат своей проверки и пояснить, с чем он сопоставлен.
 
-<h2 style="font-family:'Times New Roman';color:#000;font-size:14pt;text-align:justify;line-height:1.5;page-break-after:avoid;">Модель и ограничения</h2>
+МЕСТО ДЛЯ СКРИНШОТА
 
-<p style="font-family:'Times New Roman';color:#000;font-size:14pt;text-align:justify;line-height:1.5;text-indent:1.25cm;">Обоснуйте третью нормальную форму, сущности, ключи и правила удаления; объясните историческую цену.</p>
+Рисунок 1 — Собственная БД и среда выполнения
 
-<p style="font-family:'Times New Roman';color:#000;font-size:14pt;text-align:justify;line-height:1.5;text-indent:1.25cm;">Заполните по результатам своей работы.</p>
+Ожидалось: ____________________________________________________________
 
-<div style="page-break-inside:avoid;break-inside:avoid;">
-<table width="100%" border="1" cellspacing="0" cellpadding="0" style="border-collapse:collapse;width:100%;page-break-after:avoid;">
-<tr>
-<td height="220" style="border:1px solid #000;height:220px;text-align:center;vertical-align:middle;font-family:'Times New Roman';color:#000;font-size:12pt;line-height:1;text-indent:0;">Вставьте скриншот</td>
-</tr>
-</table>
-<p style="font-family:'Times New Roman';color:#000;font-size:12pt;text-align:center;line-height:1;text-indent:0;page-break-before:avoid;">Рисунок 2 — ER-диаграмма таблиц и связей</p>
-</div>
+Получено и объяснение: _________________________________________________
 
-<div style="page-break-inside:avoid;break-inside:avoid;">
-<table width="100%" border="1" cellspacing="0" cellpadding="0" style="border-collapse:collapse;width:100%;page-break-after:avoid;">
-<tr>
-<td height="220" style="border:1px solid #000;height:220px;text-align:center;vertical-align:middle;font-family:'Times New Roman';color:#000;font-size:12pt;line-height:1;text-indent:0;">Вставьте скриншот</td>
-</tr>
-</table>
-<p style="font-family:'Times New Roman';color:#000;font-size:12pt;text-align:center;line-height:1;text-indent:0;page-break-before:avoid;">Рисунок 3 — Ключи и ограничения размерной позиции</p>
-</div>
+На рис. 2 представить результат своей проверки и пояснить, с чем он сопоставлен.
 
-<h2 style="font-family:'Times New Roman';color:#000;font-size:14pt;text-align:justify;line-height:1.5;page-break-after:avoid;">Импорт и качество данных</h2>
+МЕСТО ДЛЯ СКРИНШОТА
 
-<p style="font-family:'Times New Roman';color:#000;font-size:14pt;text-align:justify;line-height:1.5;text-indent:1.25cm;">Покажите причину исходных расхождений при наличии, исправление, повторную диагностику и сопоставление счётчиков.</p>
+Рисунок 2 — Исходные файлы и контрольные значения
 
-<p style="font-family:'Times New Roman';color:#000;font-size:14pt;text-align:justify;line-height:1.5;text-indent:1.25cm;">Заполните по результатам своей работы.</p>
+Ожидалось: ____________________________________________________________
 
-<div style="page-break-inside:avoid;break-inside:avoid;">
-<table width="100%" border="1" cellspacing="0" cellpadding="0" style="border-collapse:collapse;width:100%;page-break-after:avoid;">
-<tr>
-<td height="220" style="border:1px solid #000;height:220px;text-align:center;vertical-align:middle;font-family:'Times New Roman';color:#000;font-size:12pt;line-height:1;text-indent:0;">Вставьте скриншот</td>
-</tr>
-</table>
-<p style="font-family:'Times New Roman';color:#000;font-size:12pt;text-align:center;line-height:1;text-indent:0;page-break-before:avoid;">Рисунок 4 — Настройка импорта CSV</p>
-</div>
+Получено и объяснение: _________________________________________________
 
-<div style="page-break-inside:avoid;break-inside:avoid;">
-<table width="100%" border="1" cellspacing="0" cellpadding="0" style="border-collapse:collapse;width:100%;page-break-after:avoid;">
-<tr>
-<td height="220" style="border:1px solid #000;height:220px;text-align:center;vertical-align:middle;font-family:'Times New Roman';color:#000;font-size:12pt;line-height:1;text-indent:0;">Вставьте скриншот</td>
-</tr>
-</table>
-<p style="font-family:'Times New Roman';color:#000;font-size:12pt;text-align:center;line-height:1;text-indent:0;page-break-before:avoid;">Рисунок 5 — Проверка исходных связей</p>
-</div>
+## 2. Модель и ограничения
 
-<div style="page-break-inside:avoid;break-inside:avoid;">
-<table width="100%" border="1" cellspacing="0" cellpadding="0" style="border-collapse:collapse;width:100%;page-break-after:avoid;">
-<tr>
-<td height="220" style="border:1px solid #000;height:220px;text-align:center;vertical-align:middle;font-family:'Times New Roman';color:#000;font-size:12pt;line-height:1;text-indent:0;">Вставьте скриншот</td>
-</tr>
-</table>
-<p style="font-family:'Times New Roman';color:#000;font-size:12pt;text-align:center;line-height:1;text-indent:0;page-break-before:avoid;">Рисунок 6 — Количество записей после переноса</p>
-</div>
+Обосновать зависимости, ключи и разделение модели и размерной позиции.
 
-<h2 style="font-family:'Times New Roman';color:#000;font-size:14pt;text-align:justify;line-height:1.5;page-break-after:avoid;">Запросы и индекс</h2>
+Фактический результат и пояснение: ________________________________________
 
-<p style="font-family:'Times New Roman';color:#000;font-size:14pt;text-align:justify;line-height:1.5;text-indent:1.25cm;">Приведите смысл запросов и ожидаемые результаты, проверьте суммы вручную; обоснуйте индекс и план EXPLAIN.</p>
+Продолжение пояснения: __________________________________________________
 
-<p style="font-family:'Times New Roman';color:#000;font-size:14pt;text-align:justify;line-height:1.5;text-indent:1.25cm;">Заполните по результатам своей работы.</p>
+На рис. 3 представить результат своей проверки и пояснить, с чем он сопоставлен.
 
-<div style="page-break-inside:avoid;break-inside:avoid;">
-<table width="100%" border="1" cellspacing="0" cellpadding="0" style="border-collapse:collapse;width:100%;page-break-after:avoid;">
-<tr>
-<td height="220" style="border:1px solid #000;height:220px;text-align:center;vertical-align:middle;font-family:'Times New Roman';color:#000;font-size:12pt;line-height:1;text-indent:0;">Вставьте скриншот</td>
-</tr>
-</table>
-<p style="font-family:'Times New Roman';color:#000;font-size:12pt;text-align:center;line-height:1;text-indent:0;page-break-before:avoid;">Рисунок 7 — Каталог размерных позиций</p>
-</div>
+МЕСТО ДЛЯ СКРИНШОТА
 
-<div style="page-break-inside:avoid;break-inside:avoid;">
-<table width="100%" border="1" cellspacing="0" cellpadding="0" style="border-collapse:collapse;width:100%;page-break-after:avoid;">
-<tr>
-<td height="220" style="border:1px solid #000;height:220px;text-align:center;vertical-align:middle;font-family:'Times New Roman';color:#000;font-size:12pt;line-height:1;text-indent:0;">Вставьте скриншот</td>
-</tr>
-</table>
-<p style="font-family:'Times New Roman';color:#000;font-size:12pt;text-align:center;line-height:1;text-indent:0;page-break-before:avoid;">Рисунок 8 — Итоги и состав заказа</p>
-</div>
+Рисунок 3 — ER диаграмма собственной базы данных
 
-<div style="page-break-inside:avoid;break-inside:avoid;">
-<table width="100%" border="1" cellspacing="0" cellpadding="0" style="border-collapse:collapse;width:100%;page-break-after:avoid;">
-<tr>
-<td height="220" style="border:1px solid #000;height:220px;text-align:center;vertical-align:middle;font-family:'Times New Roman';color:#000;font-size:12pt;line-height:1;text-indent:0;">Вставьте скриншот</td>
-</tr>
-</table>
-<p style="font-family:'Times New Roman';color:#000;font-size:12pt;text-align:center;line-height:1;text-indent:0;page-break-before:avoid;">Рисунок 9 — План запроса с индексом</p>
-</div>
+Ожидалось: ____________________________________________________________
 
-<h2 style="font-family:'Times New Roman';color:#000;font-size:14pt;text-align:justify;line-height:1.5;page-break-after:avoid;">Транзакции и регрессия</h2>
+Получено и объяснение: _________________________________________________
 
-<p style="font-family:'Times New Roman';color:#000;font-size:14pt;text-align:justify;line-height:1.5;text-indent:1.25cm;">Сравните состояние до и после успешного/ошибочного вызова, объясните блокировки и сохранение цены.</p>
+На рис. 4 представить результат своей проверки и пояснить, с чем он сопоставлен.
 
-<p style="font-family:'Times New Roman';color:#000;font-size:14pt;text-align:justify;line-height:1.5;text-indent:1.25cm;">Заполните по результатам своей работы.</p>
+МЕСТО ДЛЯ СКРИНШОТА
 
-<div style="page-break-inside:avoid;break-inside:avoid;">
-<table width="100%" border="1" cellspacing="0" cellpadding="0" style="border-collapse:collapse;width:100%;page-break-after:avoid;">
-<tr>
-<td height="220" style="border:1px solid #000;height:220px;text-align:center;vertical-align:middle;font-family:'Times New Roman';color:#000;font-size:12pt;line-height:1;text-indent:0;">Вставьте скриншот</td>
-</tr>
-</table>
-<p style="font-family:'Times New Roman';color:#000;font-size:12pt;text-align:center;line-height:1;text-indent:0;page-break-before:avoid;">Рисунок 10 — Успешный заказ и изменение остатка</p>
-</div>
+Рисунок 4 — Ключи и ограничения размерной позиции
 
-<div style="page-break-inside:avoid;break-inside:avoid;">
-<table width="100%" border="1" cellspacing="0" cellpadding="0" style="border-collapse:collapse;width:100%;page-break-after:avoid;">
-<tr>
-<td height="220" style="border:1px solid #000;height:220px;text-align:center;vertical-align:middle;font-family:'Times New Roman';color:#000;font-size:12pt;line-height:1;text-indent:0;">Вставьте скриншот</td>
-</tr>
-</table>
-<p style="font-family:'Times New Roman';color:#000;font-size:12pt;text-align:center;line-height:1;text-indent:0;page-break-before:avoid;">Рисунок 11 — Ошибка и полный откат</p>
-</div>
+Ожидалось: ____________________________________________________________
 
-<div style="page-break-inside:avoid;break-inside:avoid;">
-<table width="100%" border="1" cellspacing="0" cellpadding="0" style="border-collapse:collapse;width:100%;page-break-after:avoid;">
-<tr>
-<td height="220" style="border:1px solid #000;height:220px;text-align:center;vertical-align:middle;font-family:'Times New Roman';color:#000;font-size:12pt;line-height:1;text-indent:0;">Вставьте скриншот</td>
-</tr>
-</table>
-<p style="font-family:'Times New Roman';color:#000;font-size:12pt;text-align:center;line-height:1;text-indent:0;page-break-before:avoid;">Рисунок 12 — Проверка двух независимых покупок</p>
-</div>
+Получено и объяснение: _________________________________________________
 
-<div style="page-break-inside:avoid;break-inside:avoid;">
-<table width="100%" border="1" cellspacing="0" cellpadding="0" style="border-collapse:collapse;width:100%;page-break-after:avoid;">
-<tr>
-<td height="220" style="border:1px solid #000;height:220px;text-align:center;vertical-align:middle;font-family:'Times New Roman';color:#000;font-size:12pt;line-height:1;text-indent:0;">Вставьте скриншот</td>
-</tr>
-</table>
-<p style="font-family:'Times New Roman';color:#000;font-size:12pt;text-align:center;line-height:1;text-indent:0;page-break-before:avoid;">Рисунок 13 — Неизменность исторической цены</p>
-</div>
+## 3. Подготовка и импорт
 
-<h2 style="font-family:'Times New Roman';color:#000;font-size:14pt;text-align:justify;line-height:1.5;page-break-after:avoid;">Доступ к СУБД</h2>
+Показать координаты исходных строк, правила преобразования и результат переноса.
 
-<p style="font-family:'Times New Roman';color:#000;font-size:14pt;text-align:justify;line-height:1.5;text-indent:1.25cm;">Для каждого ограниченного логина укажите роль, разрешённое действие и действительный отказ.</p>
+Фактический результат и пояснение: ________________________________________
 
-<p style="font-family:'Times New Roman';color:#000;font-size:14pt;text-align:justify;line-height:1.5;text-indent:1.25cm;">Заполните по результатам своей работы.</p>
+Продолжение пояснения: __________________________________________________
 
-<div style="page-break-inside:avoid;break-inside:avoid;">
-<table width="100%" border="1" cellspacing="0" cellpadding="0" style="border-collapse:collapse;width:100%;page-break-after:avoid;">
-<tr>
-<td height="220" style="border:1px solid #000;height:220px;text-align:center;vertical-align:middle;font-family:'Times New Roman';color:#000;font-size:12pt;line-height:1;text-indent:0;">Вставьте скриншот</td>
-</tr>
-</table>
-<p style="font-family:'Times New Roman';color:#000;font-size:12pt;text-align:center;line-height:1;text-indent:0;page-break-before:avoid;">Рисунок 14 — Права чтения и запрет доступа к клиентам</p>
-</div>
+На рис. 5 представить результат своей проверки и пояснить, с чем он сопоставлен.
 
-<div style="page-break-inside:avoid;break-inside:avoid;">
-<table width="100%" border="1" cellspacing="0" cellpadding="0" style="border-collapse:collapse;width:100%;page-break-after:avoid;">
-<tr>
-<td height="220" style="border:1px solid #000;height:220px;text-align:center;vertical-align:middle;font-family:'Times New Roman';color:#000;font-size:12pt;line-height:1;text-indent:0;">Вставьте скриншот</td>
-</tr>
-</table>
-<p style="font-family:'Times New Roman';color:#000;font-size:12pt;text-align:center;line-height:1;text-indent:0;page-break-before:avoid;">Рисунок 15 — Разрешение процедуры и запрет прямого UPDATE</p>
-</div>
+МЕСТО ДЛЯ СКРИНШОТА
 
-<div style="page-break-inside:avoid;break-inside:avoid;">
-<table width="100%" border="1" cellspacing="0" cellpadding="0" style="border-collapse:collapse;width:100%;page-break-after:avoid;">
-<tr>
-<td height="220" style="border:1px solid #000;height:220px;text-align:center;vertical-align:middle;font-family:'Times New Roman';color:#000;font-size:12pt;line-height:1;text-indent:0;">Вставьте скриншот</td>
-</tr>
-</table>
-<p style="font-family:'Times New Roman';color:#000;font-size:12pt;text-align:center;line-height:1;text-indent:0;page-break-before:avoid;">Рисунок 16 — Права эксплуатации и запрет DROP</p>
-</div>
+Рисунок 5 — Загрузка CSV в промежуточную таблицу
 
-<h2 style="font-family:'Times New Roman';color:#000;font-size:14pt;text-align:justify;line-height:1.5;page-break-after:avoid;">Восстановление</h2>
+Ожидалось: ____________________________________________________________
 
-<p style="font-family:'Times New Roman';color:#000;font-size:14pt;text-align:justify;line-height:1.5;text-indent:1.25cm;">Опишите получение копии, отдельное имя восстановленной БД, сравнение и повторный вызов процедуры.</p>
+Получено и объяснение: _________________________________________________
 
-<p style="font-family:'Times New Roman';color:#000;font-size:14pt;text-align:justify;line-height:1.5;text-indent:1.25cm;">Заполните по результатам своей работы.</p>
+На рис. 6 представить результат своей проверки и пояснить, с чем он сопоставлен.
 
-<div style="page-break-inside:avoid;break-inside:avoid;">
-<table width="100%" border="1" cellspacing="0" cellpadding="0" style="border-collapse:collapse;width:100%;page-break-after:avoid;">
-<tr>
-<td height="220" style="border:1px solid #000;height:220px;text-align:center;vertical-align:middle;font-family:'Times New Roman';color:#000;font-size:12pt;line-height:1;text-indent:0;">Вставьте скриншот</td>
-</tr>
-</table>
-<p style="font-family:'Times New Roman';color:#000;font-size:12pt;text-align:center;line-height:1;text-indent:0;page-break-before:avoid;">Рисунок 17 — Полученная резервная копия</p>
-</div>
+МЕСТО ДЛЯ СКРИНШОТА
 
-<div style="page-break-inside:avoid;break-inside:avoid;">
-<table width="100%" border="1" cellspacing="0" cellpadding="0" style="border-collapse:collapse;width:100%;page-break-after:avoid;">
-<tr>
-<td height="220" style="border:1px solid #000;height:220px;text-align:center;vertical-align:middle;font-family:'Times New Roman';color:#000;font-size:12pt;line-height:1;text-indent:0;">Вставьте скриншот</td>
-</tr>
-</table>
-<p style="font-family:'Times New Roman';color:#000;font-size:12pt;text-align:center;line-height:1;text-indent:0;page-break-before:avoid;">Рисунок 18 — Сравнение исходной и восстановленной БД</p>
-</div>
+Рисунок 6 — Диагностика исходных связей
 
-<div style="page-break-inside:avoid;break-inside:avoid;">
-<table width="100%" border="1" cellspacing="0" cellpadding="0" style="border-collapse:collapse;width:100%;page-break-after:avoid;">
-<tr>
-<td height="220" style="border:1px solid #000;height:220px;text-align:center;vertical-align:middle;font-family:'Times New Roman';color:#000;font-size:12pt;line-height:1;text-indent:0;">Вставьте скриншот</td>
-</tr>
-</table>
-<p style="font-family:'Times New Roman';color:#000;font-size:12pt;text-align:center;line-height:1;text-indent:0;page-break-before:avoid;">Рисунок 19 — Работа процедуры в восстановленной БД</p>
-</div>
+Ожидалось: ____________________________________________________________
 
-<h2 style="font-family:'Times New Roman';color:#000;font-size:14pt;text-align:justify;line-height:1.5;page-break-after:avoid;">Дополнительные задания варианта</h2>
+Получено и объяснение: _________________________________________________
 
-<p style="font-family:'Times New Roman';color:#000;font-size:14pt;text-align:justify;line-height:1.5;text-indent:1.25cm;">Для трёх условий своего варианта покажите решение, ожидаемый результат, реальную проверку и регрессию.</p>
+На рис. 7 представить результат своей проверки и пояснить, с чем он сопоставлен.
 
-<p style="font-family:'Times New Roman';color:#000;font-size:14pt;text-align:justify;line-height:1.5;text-indent:1.25cm;">Заполните по результатам своей работы.</p>
+МЕСТО ДЛЯ СКРИНШОТА
 
-<div style="page-break-inside:avoid;break-inside:avoid;">
-<table width="100%" border="1" cellspacing="0" cellpadding="0" style="border-collapse:collapse;width:100%;page-break-after:avoid;">
-<tr>
-<td height="220" style="border:1px solid #000;height:220px;text-align:center;vertical-align:middle;font-family:'Times New Roman';color:#000;font-size:12pt;line-height:1;text-indent:0;">Вставьте скриншот</td>
-</tr>
-</table>
-<p style="font-family:'Times New Roman';color:#000;font-size:12pt;text-align:center;line-height:1;text-indent:0;page-break-before:avoid;">Рисунок 20 — Дополнительный запрос каталога</p>
-</div>
+Рисунок 7 — Журнал исправлений и отклонений
 
-<div style="page-break-inside:avoid;break-inside:avoid;">
-<table width="100%" border="1" cellspacing="0" cellpadding="0" style="border-collapse:collapse;width:100%;page-break-after:avoid;">
-<tr>
-<td height="220" style="border:1px solid #000;height:220px;text-align:center;vertical-align:middle;font-family:'Times New Roman';color:#000;font-size:12pt;line-height:1;text-indent:0;">Вставьте скриншот</td>
-</tr>
-</table>
-<p style="font-family:'Times New Roman';color:#000;font-size:12pt;text-align:center;line-height:1;text-indent:0;page-break-before:avoid;">Рисунок 21 — Дополнительный отчёт истории</p>
-</div>
+Ожидалось: ____________________________________________________________
 
-<div style="page-break-inside:avoid;break-inside:avoid;">
-<table width="100%" border="1" cellspacing="0" cellpadding="0" style="border-collapse:collapse;width:100%;page-break-after:avoid;">
-<tr>
-<td height="220" style="border:1px solid #000;height:220px;text-align:center;vertical-align:middle;font-family:'Times New Roman';color:#000;font-size:12pt;line-height:1;text-indent:0;">Вставьте скриншот</td>
-</tr>
-</table>
-<p style="font-family:'Times New Roman';color:#000;font-size:12pt;text-align:center;line-height:1;text-indent:0;page-break-before:avoid;">Рисунок 22 — Изменение или испытание по варианту</p>
-</div>
+Получено и объяснение: _________________________________________________
 
-<h2 style="font-family:'Times New Roman';color:#000;font-size:14pt;text-align:justify;line-height:1.5;page-break-after:avoid;">Эксплуатация и вывод</h2>
+На рис. 8 представить результат своей проверки и пояснить, с чем он сопоставлен.
 
-<p style="font-family:'Times New Roman';color:#000;font-size:14pt;text-align:justify;line-height:1.5;text-indent:1.25cm;">Объясните применение проекта, порядок восстановления и ограничения решения. Укажите фактические результаты, а не предполагаемые.</p>
+МЕСТО ДЛЯ СКРИНШОТА
 
-<p style="font-family:'Times New Roman';color:#000;font-size:14pt;text-align:justify;line-height:1.5;text-indent:1.25cm;">Заполните по результатам своей работы.</p>
+Рисунок 8 — Отказ переноса при ошибочных исходных строках
 
-</div>
+Ожидалось: ____________________________________________________________
+
+Получено и объяснение: _________________________________________________
+
+На рис. 9 представить результат своей проверки и пояснить, с чем он сопоставлен.
+
+МЕСТО ДЛЯ СКРИНШОТА
+
+Рисунок 9 — Успешный импорт после исправления
+
+Ожидалось: ____________________________________________________________
+
+Получено и объяснение: _________________________________________________
+
+## 4. Контроль данных
+
+Сопоставить исходные и итоговые значения, проверить историю и ограничения.
+
+Фактический результат и пояснение: ________________________________________
+
+Продолжение пояснения: __________________________________________________
+
+На рис. 10 представить результат своей проверки и пояснить, с чем он сопоставлен.
+
+МЕСТО ДЛЯ СКРИНШОТА
+
+Рисунок 10 — Счётчики таблиц и контрольные суммы
+
+Ожидалось: ____________________________________________________________
+
+Получено и объяснение: _________________________________________________
+
+На рис. 11 представить результат своей проверки и пояснить, с чем он сопоставлен.
+
+МЕСТО ДЛЯ СКРИНШОТА
+
+Рисунок 11 — Историческая цена до и после изменения прайса
+
+Ожидалось: ____________________________________________________________
+
+Получено и объяснение: _________________________________________________
+
+На рис. 12 представить результат своей проверки и пояснить, с чем он сопоставлен.
+
+МЕСТО ДЛЯ СКРИНШОТА
+
+Рисунок 12 — Отказы ограничений и сохранение состояния
+
+Ожидалось: ____________________________________________________________
+
+Получено и объяснение: _________________________________________________
+
+## 5. Передача результата
+
+Приложить состав пакета и доказательство чистого развёртывания.
+
+Фактический результат и пояснение: ________________________________________
+
+Продолжение пояснения: __________________________________________________
+
+На рис. 13 представить результат своей проверки и пояснить, с чем он сопоставлен.
+
+МЕСТО ДЛЯ СКРИНШОТА
+
+Рисунок 13 — Состав передаваемого проекта
+
+Ожидалось: ____________________________________________________________
+
+Получено и объяснение: _________________________________________________
+
+На рис. 14 представить результат своей проверки и пояснить, с чем он сопоставлен.
+
+МЕСТО ДЛЯ СКРИНШОТА
+
+Рисунок 14 — Чистое развёртывание и повторная сверка
+
+Ожидалось: ____________________________________________________________
+
+Получено и объяснение: _________________________________________________
+
+## 6. Вывод
+
+Выполненные требования и подтверждения: ________________________________
+
+Оставшиеся ограничения и причины: _____________________________________
+
+Проверка доступности репозитория и состава сдачи: _________________________

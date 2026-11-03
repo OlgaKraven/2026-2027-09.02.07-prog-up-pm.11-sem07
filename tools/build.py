@@ -1,0 +1,94 @@
+"""Build the learning site and downloadable source packages."""
+import csv,hashlib,html,json,re,shutil,zipfile
+from pathlib import Path
+ROOT=Path(__file__).resolve().parents[1]; SITE=ROOT/'site'; DL=SITE/'downloads'
+C=json.loads((ROOT/'content/course.json').read_text(encoding='utf-8'))
+E=json.loads((ROOT/'content/extensions.json').read_text(encoding='utf-8'))
+BASE=C['meta']['site_url'].rstrip('/')+'/'
+DL.mkdir(parents=True,exist_ok=True)
+def esc(s):return html.escape(str(s),quote=True)
+def put(name,text):(SITE/name).write_text(text,encoding='utf-8',newline='\n')
+def text(s):
+ return ''.join('<p>'+re.sub(r'https?://[^\s<]+',lambda m:'<a href="'+m[0]+'">'+m[0]+'</a>',esc(p)).replace('\n','<br>')+'</p>' for p in s.split('\n\n'))
+def head(kicker,title,subtitle=''):
+ return '<header class="chapter"><p class="kicker">'+esc(kicker)+'</p><h1>'+esc(title)+'</h1>'+('<p>'+esc(subtitle)+'</p>' if subtitle else '')+'</header>'
+def buttons(items):return '<div class="actions">'+''.join('<a class="button" href="'+esc(p)+'">'+esc(t)+'</a>' for p,t in items)+'</div>'
+def card(b,n):
+ if b['kind']=='image':
+  path=b['path']; source=ROOT/path
+  if not source.exists():return ''
+  dest=SITE/'assets/screenshots'/source.name; dest.parent.mkdir(parents=True,exist_ok=True); shutil.copy2(source,dest)
+  return '<li class="illustration"><figure><img src="assets/screenshots/'+esc(source.name)+'" alt="'+esc(b.get('alt',b['title']))+'"><figcaption>'+esc(b['title'])+'</figcaption></figure>'+text(b.get('text',''))+'</li>'
+ if b['kind']=='code':
+  if 'code' in b:raw=b['code']
+  else:
+   lines=(ROOT/'project'/b['code_file']).read_text(encoding='utf-8').splitlines()
+   if 'code_lines' in b:
+    lo,hi=b['code_lines'];lines=lines[max(0,lo-1):hi]
+   raw='\n'.join(lines)
+  chunks=[raw.splitlines()[i:i+14] for i in range(0,len(raw.splitlines()),14)]
+  return ''.join(card(dict(kind='snippet',title=b['title']+(' · продолжение' if i else ''),text='\n'.join(ch)),str(n)+(f'.{i+1}' if len(chunks)>1 else '')) for i,ch in enumerate(chunks))
+ inner='<pre><code>'+esc(b['text'])+'</code></pre>' if b['kind']=='snippet' else text(b.get('text',''))
+ if b.get('check'):inner+='<p class="result"><strong>Проверка.</strong> '+esc(b['check'])+'</p>'
+ return '<li class="step"><span class="number">'+str(n)+'</span><section class="card"><h3>'+esc(b['title'])+'</h3>'+inner+'</section></li>'
+def chapter(s,n,anchor=''):
+ blocks=[];idx=0
+ for b in s['blocks']:
+  if b['kind']!='image':idx+=1
+  blocks.append(card(b,idx))
+ return '<article class="lesson" id="'+anchor+'">'+head('ПМ.11 · Раздел '+str(n),s['title'])+'<ol class="route">'+''.join(blocks)+'</ol></article>'
+def page(title,body,active='',script=''):
+ nav='<a class="skip" href="#main">К содержанию</a><nav aria-label="Разделы практики">'+''.join('<a href="'+p+'"'+(' aria-current="page"' if p==active else '')+'>'+t+'</a>' for p,t in [('index.html','Задание'),('lessons.html','Методические рекомендации'),('areas.html','Предметные области'),('extensions.html','Для углубления')])+'</nav>'
+ return '<!doctype html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>'+esc(title)+' — УП ПМ.11</title><link rel="icon" href="assets/favicon.svg"><link rel="stylesheet" href="assets/style.css"></head><body>'+nav+'<main id="main">'+body+'</main>'+script+'</body></html>'
+assignment=''.join(chapter(s,i,'assignment-'+str(i)) for i,s in enumerate(C['assignment'],1))
+links=[('source-materials.zip','Исходные материалы и все варианты'),('database-starter.zip','Заготовка проекта'),('demo-solution.zip','Образец для сверки')]
+files=dict(title='Файлы и первый шаг',blocks=[
+ dict(kind='text',title='Исходные материалы',text='В source-materials.zip находятся data/original с пятью XLSX, data/demo с CSV образца, data/variant-01 … data/variant-30 с отдельными наборами и context.json, а также карты источников и словарь. Выбрать папку назначенного варианта. Каждый отдельный набор также доступен под его карточкой.',check='Скачать данные своего варианта и сохранить исходные файлы без изменений.'),
+ dict(kind='text',title='Заготовка и SQL образца',text='database-starter.zip содержит пустую структуру проекта и порядок работы. SQL образца 01_schema.sql — 04_queries.sql можно читать по прямым ссылкам ниже; по объяснениям подготовить собственные SQL. demo-solution.zip служит сверкой после собственной попытки. Отдельно создавать демонстрационную БД не требуется.'),
+ dict(kind='text',title='Прямые ссылки на архивы',text='\n\n'.join(t+': '+BASE+'downloads/'+p for p,t in links),check='Эти же ссылки работают из PDF; все 30 наборов находятся в одном исходном архиве.'),
+ dict(kind='text',title='Отчёт и документы',text='Пустая форма report-template.docx содержит поля и рамки для собственных рисунков. Преподаватель выдаёт её вместе с документами EatDoners. Заполнить факты своей области и ссылку на репозиторий; подписи рисунков согласованы с презентацией.')])
+material=chapter(files,'Файлы','files')+buttons([('downloads/'+p,t) for p,t in links]+[('downloads/report-template.docx','Пустая форма отчёта · DOCX')]+[('downloads/'+p,p) for p in ['01_schema.sql','02_staging.sql','03_import.sql','04_queries.sql']])
+method=''.join(chapter(s,'М.'+str(i),'step-'+str(i)) for i,s in enumerate(C['guide'],1))
+toc='<section class="contents"><h2>Маршрут работы</h2><ol>'+''.join('<li><a href="#step-'+str(i)+'">'+esc(s['title'])+'</a></li>' for i,s in enumerate(C['guide'],1))+'</ol></section>'
+literature=chapter(dict(title='Литература и документация',blocks=[dict(kind='text',title='Для углубления',text='\n\n'.join(C['literature']))]),'Источники')
+hero=head('Учебная практика · 4 курс · 7 семестр','Разработка и импорт базы данных','Одна собственная схема, проверяемые исходные строки и сохранённая история заказов.')
+put('index.html',page('Задание',hero+assignment+material+buttons([('lessons.html','Перейти к методике'),('downloads/assignment.pdf','Методические рекомендации · PDF'),('downloads/guide.pdf','Предметные области · PDF')]),'index.html'))
+put('lessons.html',page('Методические рекомендации',head('ПМ.11 · Образец «Пара»','Методические рекомендации','Изучить приём на образце и выполнить действие сразу в своей БД.')+toc+method+literature,'lessons.html'))
+def area(a):
+ identity='<div class="identity"><p><strong>Индивидуальная работа</strong>'+esc(a['subject'])+'</p><p><strong>Образец — «Пара»</strong>Объясняет приёмы; отдельно повторять его не требуется.</p></div>'
+ context=json.loads((ROOT/f'data/variant-{a["id"]:02}/context.json').read_text(encoding='utf-8'))
+ data='<section class="data"><h2>Входные данные</h2><p>Папка data/variant-'+f'{a["id"]:02}'+'. Историческая сумма: '+str(context['historical_order_total'])+'.</p><table><thead><tr><th>Файл</th><th>Строк данных</th></tr></thead><tbody>'+''.join('<tr><td>'+name+'.csv</td><td>'+str(count)+'</td></tr>' for name,count in context['rows'].items())+'</tbody></table></section>'
+ return '<article class="area" id="variant-'+str(a['id'])+'" data-variant="'+str(a['id'])+'">'+head('ПМ.11 · Вариант '+f'{a["id"]:02}',a['subject'])+identity+data+'<ol class="route">'+''.join(card(b,i) for i,b in enumerate(a['blocks'],1))+'</ol>'+buttons([(f'downloads/variant-{a["id"]:02}.zip','Данные этой области'),('downloads/source-materials.zip','Все исходные материалы'),('lessons.html#step-1','Начало методики')])+'</article>'
+area_start=chapter(dict(title='Найти проект и данные своей области',blocks=[
+ dict(kind='text',title='Скачать и выбрать',text='Скачать общий архив исходных материалов и заготовку проекта по прямым ссылкам. Внутри исходного архива найти data/variant-NN по номеру назначенной карточки. Например, для варианта 07 открыть data/variant-07. Пять CSV и context.json содержат собственные данные; отдельные скачивания всех 30 ZIP не требуются.'),
+ dict(kind='text',title='Прямые ссылки',text='\n\n'.join(t+': '+BASE+'downloads/'+p for p,t in links)),
+ dict(kind='text',title='Начало и результат',text='В phpMyAdmin создать одну собственную БД pm11_vNN с utf8mb4_bin. Прочитать общее задание и идти по методике; названия и контрольные числа заменять значениями своего набора. Передать ER.pdf, SQL, данные, словарь, журнал, контрольные значения и заполненный отчёт. Дополнительные условия из раздела углубления не обязательны для сдачи.')]),'Начало')
+areas=''.join(area(a) for a in C['areas'])
+chooser='<div class="chooser"><label for="variant">Предметная область</label><select id="variant">'+''.join('<option value="'+str(a['id'])+'">'+esc(a['title'])+'</option>' for a in C['areas'])+'</select><button id="prev">Предыдущая</button><button id="next">Следующая</button><p id="position" aria-live="polite"></p></div>'
+script='''<script>const choose=document.querySelector('#variant'),all=[...document.querySelectorAll('.area')];function show(n){n=Math.min(all.length,Math.max(1,Number(n)||1));choose.value=n;all.forEach(a=>a.hidden=Number(a.dataset.variant)!==n);document.querySelector('#prev').disabled=n===1;document.querySelector('#next').disabled=n===all.length;document.querySelector('#position').textContent=`Вариант ${n} из ${all.length}`;history.replaceState(null,'','#variant-'+n)}choose.addEventListener('change',()=>show(choose.value));document.querySelector('#prev').onclick=()=>show(Number(choose.value)-1);document.querySelector('#next').onclick=()=>show(Number(choose.value)+1);show(location.hash.split('-').pop());</script>'''
+put('areas.html',page('Предметные области',area_start+chooser+areas,'areas.html',script))
+optional=head('ПМ.11 · Дополнительное изучение','Для углубления','Эти разборы сохраняют подробный демонстрационный пример. Они не входят в обязательную сдачу схемы и импорта.')+buttons([('downloads/extensions.zip','Исходники и дополнительные разборы')])+''.join(chapter(s,'Д.'+str(i),'extra-'+str(i)) for i,s in enumerate(E['guide'],1))
+optional+=head('Индивидуальные расширения','Дополнительные условия областей','Применять по отдельному заданию после принятия основного результата.')+''.join(chapter(dict(title=a['subject'],blocks=a['blocks']),'В.'+str(a['id'])) for a in E['areas'])
+put('extensions.html',page('Для углубления',optional,'extensions.html'))
+put('print-method.html',page('Методические рекомендации',hero+assignment+material+method+literature))
+print_start=re.sub(r'<header class="chapter">.*?</header>','',area_start,count=1,flags=re.S)
+put('print-areas.html',page('Предметные области',head('Учебная практика ПМ.11','Предметные области')+print_start+areas))
+def archive(name,files):
+ with zipfile.ZipFile(DL/name,'w',zipfile.ZIP_DEFLATED) as z:
+  for p in sorted(set(files)):
+   if p.is_file():z.write(p,p.relative_to(ROOT).as_posix())
+archive('database-starter.zip',list((ROOT/'starter').rglob('*')))
+refs=[ROOT/'project'/n for n in ['INPUT_MAPPING.md','DATA_DICTIONARY.md','HANDOFF.md','SOURCE.md']]
+archive('source-materials.zip',list((ROOT/'data').rglob('*'))+refs+list((ROOT/'starter').rglob('*')))
+archive('demo-data.zip',list((ROOT/'data/demo').rglob('*'))+[ROOT/'project/SOURCE.md'])
+archive('demo-solution.zip',list((ROOT/'project').rglob('*'))+list((ROOT/'data/demo').rglob('*')))
+archive('extensions.zip',list((ROOT/'project/reference').rglob('*'))+[ROOT/'content/extensions.json'])
+for a in C['areas']:archive(f'variant-{a["id"]:02}.zip',list((ROOT/f'data/variant-{a["id"]:02}').rglob('*')))
+for p in (ROOT/'project').iterdir():
+ if p.is_file():shutil.copy2(p,DL/p.name)
+shutil.copy2(ROOT/'content/report-template.md',DL/'report-template.md')
+report=ROOT/'forms/Форма отчёта УП ПМ.11.docx'
+if report.exists():shutil.copy2(report,DL/'report-template.docx')
+manifest={p.relative_to(SITE).as_posix():hashlib.sha256(p.read_bytes()).hexdigest() for p in SITE.rglob('*') if p.is_file() and p.name!='manifest.json'}
+put('manifest.json',json.dumps(dict(schema_version=1,files=manifest),ensure_ascii=False,indent=2)+'\n')
+print('Site and source packages prepared')
