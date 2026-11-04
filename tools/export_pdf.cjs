@@ -8,7 +8,7 @@ const {chromium}=require('playwright');
  for(const [input,output] of [['print-method.html','assignment.pdf'],['print-areas.html','guide.pdf']]){
    await page.goto(pathToFileURL(path.join(root,'site',input)).href);
    await page.evaluate(()=>document.fonts.ready);
-   await page.pdf({path:path.join(root,'site','downloads',output),printBackground:true,preferCSSPageSize:true,displayHeaderFooter:true,headerTemplate:'<span></span>',footerTemplate:'<div style="font:9px Arial;width:100%;text-align:center"><span class="pageNumber"></span></div>',tagged:true,outline:true});
+   await page.pdf({path:path.join(root,'site','downloads',output),printBackground:true,preferCSSPageSize:true,tagged:true,outline:true});
    process.stdout.write(output+' exported\n');
  }
  await browser.close();

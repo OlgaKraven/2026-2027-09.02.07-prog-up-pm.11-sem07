@@ -3,6 +3,7 @@ import hashlib,json,re,subprocess,zipfile
 from pathlib import Path
 from urllib.parse import unquote,urlsplit
 from pypdf import PdfReader
+import pdfplumber
 from lxml import etree
 from lxml import html as html_parser
 from PIL import Image
@@ -52,6 +53,19 @@ for name in ['assignment.pdf','guide.pdf']:
  links=[unquote(str(a.get_object().get('/A',{}).get('/URI',''))) for p in pdf.pages for a in p.get('/Annots',[])]
  for n in ['database-starter.zip','demo-data.zip','demo-solution.zip']:assert base+n in links,(name,n)
  assert all(len(p.extract_text().strip())>10 for p in pdf.pages)
+ # Inspect the produced PDF: overflow can shrink the whole document even when
+ # the CSS declares the right font sizes.
+ with pdfplumber.open(DL/name) as rendered:
+  first=rendered.pages[0]
+  body=[c for c in first.chars if c['text'].strip() and 'GolosText' in c['fontname'] and abs(c['size']-10.5)<.03]
+  assert len(body)>100,(name,'body was scaled away from the approved10.5pt profile')
+  footer=[c for c in first.chars if c['text'].strip() and c['top']>first.height-45]
+  assert ''.join(c['text'] for c in footer)=='1',(name,'missing page number')
+  assert all('GolosText' in c['fontname'] and abs(c['size']-8)<.03 for c in footer),(name,'footer font or size')
+  if name=='assignment.pdf':
+   page_index=next(i for i,p in enumerate(pdf.pages) if 'Рисунок 1 ' in p.extract_text())
+   caption=rendered.pages[page_index].search(r'Рисунок\s+1\s*—')[0]['chars']
+   assert all('GolosText' in c['fontname'] and abs(c['size']-9.5)<.03 for c in caption),(name,'figure caption profile')
  if name=='assignment.pdf':
   for sql_name in ['01_schema.sql','02_staging.sql','03_import.sql','04_queries.sql','09_checks_walkthrough.sql']:
    assert base+sql_name in links,(name,'missing direct SQL link',sql_name)
