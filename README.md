@@ -6,6 +6,6 @@
 
 Спроектировать одну собственную базу данных, проверить и импортировать исходные строки, сохранить ER и подготовить проверяемый пакет. Магазин «Пара» объясняет приёмы; отдельно повторять демонстрацию не требуется.
 
-[Методические рекомендации](https://olgakraven.github.io/2026-2027-09.02.07-prog-up-pm.11-sem07/downloads/assignment.pdf) · [Предметные области](https://olgakraven.github.io/2026-2027-09.02.07-prog-up-pm.11-sem07/downloads/guide.pdf) · [Пустая форма отчёта Word](https://olgakraven.github.io/2026-2027-09.02.07-prog-up-pm.11-sem07/downloads/report-template.docx)
+[Методические рекомендации](https://olgakraven.github.io/2026-2027-09.02.07-prog-up-pm.11-sem07/downloads/assignment.pdf) · [Предметные области](https://olgakraven.github.io/2026-2027-09.02.07-prog-up-pm.11-sem07/downloads/guide.pdf) · [Отчет о выполнении · Word](https://olgakraven.github.io/2026-2027-09.02.07-prog-up-pm.11-sem07/downloads/Отчет%20о%20выполнении.docx)
 
 Разборы процедуры заказа, конкуренции, ролей и дополнительных моделей сохранены в отдельном разделе для углубления. Происхождение данных и карта XLSX → CSV описаны в project/SOURCE.md и project/INPUT_MAPPING.md.

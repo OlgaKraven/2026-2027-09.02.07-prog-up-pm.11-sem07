@@ -1,0 +1,96 @@
+{
+  "33-empty-target": {
+    "x": 0,
+    "y": 675,
+    "w": 410,
+    "h": 65
+  },
+  "35-import-recovered": {
+    "x": 0,
+    "y": 695,
+    "w": 645,
+    "h": 65
+  },
+  "36-historical-price": {
+    "x": 0,
+    "y": 1267.921875,
+    "w": 463.703125,
+    "h": 68.5625
+  },
+  "36-price-restored": {
+    "x": 0,
+    "y": 1535.21875,
+    "w": 459.359375,
+    "h": 74.28125,
+    "source": "36-historical-price"
+  },
+  "37-duplicate-rejected": {
+    "x": 7,
+    "y": 775,
+    "w": 750,
+    "h": 90
+  },
+  "38-negative-rejected": {
+    "x": 7,
+    "y": 775,
+    "w": 750,
+    "h": 90
+  },
+  "39-foreign-key-rejected": {
+    "x": 7,
+    "y": 755,
+    "w": 750,
+    "h": 90
+  },
+  "40-after-constraints": {
+    "x": 0,
+    "y": 409.75,
+    "w": 644.890625,
+    "h": 68.5625
+  },
+  "31-export-query": {
+    "x": 0,
+    "y": 0,
+    "w": 1280,
+    "h": 744
+  },
+  "41-clean-deployment": {
+    "x": 0,
+    "y": 410,
+    "w": 645,
+    "h": 70
+  },
+  "43-before": {
+    "x": 0,
+    "y": 655,
+    "w": 350,
+    "h": 65,
+    "source": "43-history-states"
+  },
+  "43-after": {
+    "x": 0,
+    "y": 1250,
+    "w": 350,
+    "h": 65,
+    "source": "43-history-states"
+  },
+  "43-restored": {
+    "x": 0,
+    "y": 1805,
+    "w": 350,
+    "h": 65,
+    "source": "43-history-states"
+  },
+  "20-staging-counts": {
+    "x": 0,
+    "y": 445,
+    "w": 270,
+    "h": 150
+  },
+  "11-er-export-settings": {
+    "x": 0,
+    "y": 0,
+    "w": 1280,
+    "h": 744
+  }
+}

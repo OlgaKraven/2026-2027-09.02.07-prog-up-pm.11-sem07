@@ -124,6 +124,8 @@ c['literature']=[
  'CREATE TABLE. MariaDB Server Documentation. https://mariadb.com/docs/server/reference/sql-statements/data-definition/create/create-table (дата обращения: 03.11.2026).',
  'Foreign Keys. MariaDB Server Documentation. https://mariadb.com/docs/server/ha-and-performance/optimization-and-tuning/optimization-and-indexes/foreign-keys (дата обращения: 03.11.2026).',
  'Import and export. phpMyAdmin Documentation. https://docs.phpmyadmin.net/en/latest/import_export.html (дата обращения: 03.11.2026).']
+from illustrate_course import enrich
+c = enrich(c)
 (ROOT/'content/course.json').write_text(json.dumps(c,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
 ext=dict(title='Для углубления и подробной сверки образца',guide=[old['guide'][i-1] for i in range(9,45)],areas=optional)
 for s in ext['guide']:

@@ -3,13 +3,14 @@
 ## Состав
 
 - sql/01_schema.sql, 02_staging.sql, 03_import.sql, 04_queries.sql собственной схемы;
-- data — пять исходных CSV своего варианта и context.json;
+- data/variant-NN — пять исходных CSV своего варианта и context.json;
 - er/ER.pdf — предметные таблицы с атрибутами, ключами и связями;
 - docs/DATA_DICTIONARY.md и INPUT_MAPPING.md — поля и происхождение данных;
-- checks/import-issues.csv — журнал исправлений и отклонений;
+- checks/import-issues.csv — полный журнал после принятого импорта;
+- checks/rejections-before.csv — отклонения до исправления;
 - checks/control.json — ожидаемые и фактические счётчики и суммы;
 - README.md — точный порядок развёртывания и имя собственной БД;
-- report.docx — заполненный отчёт со ссылкой на репозиторий.
+- Отчет о выполнении.docx — заполненный отчёт со ссылкой на репозиторий.
 
 ## Чистое развёртывание
 
