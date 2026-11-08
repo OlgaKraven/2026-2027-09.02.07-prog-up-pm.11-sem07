@@ -1,5 +1,5 @@
 """Build the learning site and downloadable source packages."""
-import csv,hashlib,html,json,re,shutil,zipfile
+import csv,hashlib,html,json,re,shutil,sys,zipfile
 from PIL import Image
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]; SITE=ROOT/'site'; DL=SITE/'downloads'
@@ -66,7 +66,7 @@ def page(title,body,active='',script=''):
 assignment=''.join(chapter(s,i,'assignment-'+str(i)) for i,s in enumerate(C['assignment'],1))
 links=[('database-starter.zip','Заготовка проекта'),('demo-data.zip','Исходные данные образца «Пара»'),('demo-solution.zip','Тестовый проект образца «Пара»')]
 files=dict(title='Файлы и первый шаг',blocks=[
- dict(kind='text',title='Свой вариант',text='В отдельном списке предметных областей найти назначенную карточку. Скачать только variant-NN.zip по прямой ссылке этой карточки. В нём находятся пять собственных CSV, context.json, структура рабочей папки, карта полей и инструкция начала. Общий архив всех индивидуальных наборов не требуется.',check='Номер, название области и контрольные значения совпадают с назначенным вариантом.'),
+ dict(kind='text',title='Свой вариант',text='В списке предметных областей открыть карточку по своему порядковому номеру в списке группы. Скачать только variant-NN.zip по прямой ссылке этой карточки. В нём находятся пять собственных CSV, context.json, структура рабочей папки, карта полей и инструкция начала. Общий архив всех индивидуальных наборов не требуется.',check='Номер карточки совпадает с номером строки в списке своей группы.'),
  dict(kind='text',title='Заготовка и SQL образца',text='database-starter.zip содержит пустую структуру проекта и порядок работы. SQL образца 01_schema.sql — 04_queries.sql можно читать по прямым ссылкам ниже; по объяснениям подготовить собственные SQL. demo-solution.zip служит сверкой после собственной попытки. Отдельно создавать демонстрационную БД не требуется.'),
  dict(kind='text',title='Прямые ссылки на архивы',text='\n\n'.join(t+': '+BASE+'downloads/'+p for p,t in links),check='Тестовый проект — отдельный образец для сверки; его данные не заменяют свой вариант.'),
  dict(kind='text',title='SQL-файлы для чтения и подготовки собственной работы',text='\n\n'.join(label+': '+BASE+'downloads/'+name for name,label in [
@@ -91,7 +91,7 @@ def area(a):
  standalone='<p class="variant-download"><strong>Комплект своего варианта:</strong><br><a href="'+esc(direct)+'">'+esc(direct)+'</a></p>'
  return '<article class="area" id="variant-'+str(a['id'])+'" data-variant="'+str(a['id'])+'">'+head('ПМ.11 · Вариант '+f'{a["id"]:02}',a['subject'])+identity+standalone+data+'<ol class="route">'+''.join(card(b,i) for i,b in enumerate(a['blocks'],1))+'</ol>'+buttons([(f'downloads/variant-{a["id"]:02}.zip','Скачать комплект своего варианта'),('downloads/Отчет о выполнении.docx','Отчет о выполнении'),('lessons.html#step-1','Начало методики')])+'</article>'
 area_start=chapter(dict(title='Найти проект и данные своей области',blocks=[
- dict(kind='text',title='Скачать свой комплект',text='Найти назначенный номер и название карточки. По ссылке этой карточки скачать только variant-NN.zip. После распаковки открыть data/variant-NN: пять CSV и context.json содержат собственные данные. Папки sql, er, docs и checks подготовлены для своей работы. Для примера 07 используется только комплект variant-07.zip.'),
+ dict(kind='text',title='Скачать свой комплект',text='Найти свою фамилию в списке своей группы. В списке предметных областей открыть карточку с порядковым номером строки. Для строки 7 выбрать вариант 07 и скачать variant-07.zip. Если фамилии или номера нет, уточнить вариант у руководителя. После распаковки открыть data/variant-NN: пять CSV и context.json содержат собственные данные. Папки sql, er, docs и checks подготовлены для своей работы. Для примера 07 используется только комплект variant-07.zip.'),
  dict(kind='text',title='Прямые ссылки',text='\n\n'.join(t+': '+BASE+'downloads/'+p for p,t in links)),
  dict(kind='text',title='Начало и результат',text='В phpMyAdmin создать одну собственную БД pm11_vNN с utf8mb4_bin. Прочитать общее задание и идти по методике; названия и контрольные числа заменять значениями своего набора. Передать ER.pdf, SQL, данные, словарь, журнал, контрольные значения и заполненный отчёт. Дополнительные условия из раздела углубления не обязательны для сдачи.')]),'Начало')
 areas=''.join(area(a) for a in C['areas'])
@@ -103,30 +103,31 @@ optional+=head('Индивидуальные расширения','Дополн
 put('extensions.html',page('Для углубления',optional,'extensions.html'))
 put('print-method.html',page('Методические рекомендации',hero+assignment+material+method+literature))
 print_start=re.sub(r'<header class="chapter">.*?</header>','',area_start,count=1,flags=re.S)
-put('print-areas.html',page('Предметные области',head('Учебная практика ПМ.11','Предметные области')+print_start+areas))
+put('print-areas.html',page('Предметные области',head('Учебная практика ПМ.11','Список предметных областей')+print_start+areas))
 def archive(name,files):
  with zipfile.ZipFile(DL/name,'w',zipfile.ZIP_DEFLATED) as z:
   for p in sorted(set(files)):
    if p.is_file():z.write(p,p.relative_to(ROOT).as_posix())
-archive('database-starter.zip',list((ROOT/'starter').rglob('*')))
-refs=[ROOT/'project'/n for n in ['INPUT_MAPPING.md','DATA_DICTIONARY.md','HANDOFF.md','SOURCE.md']]
-archive('demo-data.zip',list((ROOT/'data/demo').rglob('*'))+list((ROOT/'data/original').rglob('*'))+refs)
-archive('demo-solution.zip',list((ROOT/'project').rglob('*'))+list((ROOT/'data/demo').rglob('*')))
-archive('extensions.zip',list((ROOT/'project/reference').rglob('*'))+[ROOT/'content/extensions.json'])
-for a in C['areas']:
- with zipfile.ZipFile(DL/f'variant-{a["id"]:02}.zip','w',zipfile.ZIP_DEFLATED) as z:
-  for p in sorted((ROOT/f'data/variant-{a["id"]:02}').glob('*')):
-   if p.is_file():z.write(p,p.relative_to(ROOT).as_posix())
-  z.write(ROOT/'starter/README.md','README.md')
-  for d in ['sql','er','docs','checks']:z.writestr(d+'/',b'')
-  for n in ['INPUT_MAPPING.md','DATA_DICTIONARY.md','HANDOFF.md']:z.write(ROOT/'project'/n,'docs/'+n)
-for p in (ROOT/'project').iterdir():
- if p.is_file():shutil.copy2(p,DL/p.name)
-report=ROOT/'forms/Отчет о выполнении.docx'
-if report.exists():shutil.copy2(report,DL/report.name)
-for legacy in ['source-materials.zip','report-template.docx','report-template.md']:
- target=DL/legacy
- if target.is_file():target.unlink()
+if '--keep-downloads' not in sys.argv:
+ archive('database-starter.zip',list((ROOT/'starter').rglob('*')))
+ refs=[ROOT/'project'/n for n in ['INPUT_MAPPING.md','DATA_DICTIONARY.md','HANDOFF.md','SOURCE.md']]
+ archive('demo-data.zip',list((ROOT/'data/demo').rglob('*'))+list((ROOT/'data/original').rglob('*'))+refs)
+ archive('demo-solution.zip',list((ROOT/'project').rglob('*'))+list((ROOT/'data/demo').rglob('*')))
+ archive('extensions.zip',list((ROOT/'project/reference').rglob('*'))+[ROOT/'content/extensions.json'])
+ for a in C['areas']:
+  with zipfile.ZipFile(DL/f'variant-{a["id"]:02}.zip','w',zipfile.ZIP_DEFLATED) as z:
+   for p in sorted((ROOT/f'data/variant-{a["id"]:02}').glob('*')):
+    if p.is_file():z.write(p,p.relative_to(ROOT).as_posix())
+   z.write(ROOT/'starter/README.md','README.md')
+   for d in ['sql','er','docs','checks']:z.writestr(d+'/',b'')
+   for n in ['INPUT_MAPPING.md','DATA_DICTIONARY.md','HANDOFF.md']:z.write(ROOT/'project'/n,'docs/'+n)
+ for p in (ROOT/'project').iterdir():
+  if p.is_file():shutil.copy2(p,DL/p.name)
+ report=ROOT/'forms/Отчет о выполнении.docx'
+ if report.exists():shutil.copy2(report,DL/report.name)
+ for legacy in ['source-materials.zip','report-template.docx','report-template.md']:
+  target=DL/legacy
+  if target.is_file():target.unlink()
 manifest={p.relative_to(SITE).as_posix():hashlib.sha256(p.read_bytes()).hexdigest() for p in SITE.rglob('*') if p.is_file() and p.name!='manifest.json'}
 put('manifest.json',json.dumps(dict(schema_version=1,files=manifest),ensure_ascii=False,indent=2)+'\n')
 print('Site and source packages prepared')
